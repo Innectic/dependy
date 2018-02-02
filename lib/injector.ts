@@ -2,6 +2,7 @@
 export interface Injectable {
 	injects: any;
 	create?: Function;
+	value?: any;
 	depends?: any[];
 }
 
@@ -48,11 +49,15 @@ export class Injector {
 			// Since all the deps are resolved, then we can proceed.
 			const constructedDependencies = this.getDependenciesInOrder(injectable);
 			let instance: any = null;
+
 			if (!!injectable.create) {
 				instance = injectable.create(...constructedDependencies);
+			} else if (!!injectable.value) {
+				instance = injectable.value;
 			} else {
 				instance = this.createInstanceOfInjectable(injectable, constructedDependencies);				
 			}
+
 			// Store the constructed object
 			this.injected[injectable.injects.name] = instance;
 		}
@@ -62,6 +67,7 @@ export class Injector {
 	private setup(injectables: Injectable[]) {
 		let flagged = this.handleDependencies(injectables);
 		if (flagged.length >= 1) {
+			// TODO: We want an error here at some point
 			this.setup(flagged);
 		}
 	}
