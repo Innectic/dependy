@@ -1,6 +1,6 @@
 {
   "name": "dependy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple dependency injection.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,5 +25,5 @@
   "keywords": [
     "dependency",
     "injection"
-  ],
+  ]
 }
