@@ -1,23 +1,29 @@
 {
   "name": "dependy",
   "version": "1.0.1",
+  "description": "Simple dependency injection.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "description": "Simple dependency injection",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "npm run build",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "github.com/innectic/dependy"
+    "url": "git+https://github.com/innectic/dependy.git"
   },
+  "author": "Innectic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/innectic/dependy/issues"
+  },
+  "homepage": "https://github.com/innectic/dependy#readme",
   "keywords": [
     "dependency",
     "injection"
   ],
-  "author": "Innectic",
-  "license": "MIT"
 }
